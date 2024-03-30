@@ -36,7 +36,7 @@ public class Theatre {
                 int option = input.nextInt();
                 switch (option) {               //switch case to call all the methods
                     case 1 :buyTicket();break;
-                    // case 2 :printSeatingArea();break;
+                    case 2 :printSeatingArea();break;
                     // case 3 :cancelTicket();break;
                     // case 4 :showAvailable();break;
                     // case 5 :save();break;
@@ -152,6 +152,36 @@ public class Theatre {
         }
 
     }
+    public static void printSeatingArea() { //print all the seating area method
+        System.out.println("\t************");
+        System.out.println("\t*   STAGE  *");
+        System.out.println("\t************");
+        seatShow(Row1); //get data from seatShow method
+        seatShow(Row2);
+        seatShow(Row3);
+
+    }
+    private static void seatShow(int[] row) {  //space creating method for all seating areas
+        int spaceCount = (Row3.length - row.length) / 2;//add front spaces in seating area
+        if (spaceCount > 0) {
+            for (int x = 0; x < spaceCount; x++) {
+                System.out.print(" ");
+            }
+        }
+        //Print Values
+        for (int i = 0; i < row.length; i++) {
+            if (row[i] == 1) {
+                System.out.print("X"); //booked seats Display like "X"
+            } else {
+                System.out.print(row[i]);
+            }
+            //Mid spaces
+            if (i == (row.length / 2) - 1)  //add middle spaces in seating area
+                System.out.print(" ");
+        }
+        System.out.println();
+    }
+    
     }
 
 
