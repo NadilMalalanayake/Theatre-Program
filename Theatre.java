@@ -211,6 +211,31 @@ public class Theatre {
         }else
             System.out.println("This seat is not Booked.");
     }
+    public static void showAvailable(){ //Display all the available seats in the entire Rows
+        availableSeat(); //get data from availableSeat method
+    }
+    private static void availableSeat(){  //create seat available part
+        System.out.println();
+        System.out.print("Seat available in row 1 :");
+        for(int i=0;i< Row1.length;i++){
+            if(Row1[i]==0)
+                System.out.print((i+1) + ",");
+        }
+        System.out.println();
+        System.out.print("Seat available in row 2 :");
+        for(int i=0;i< Row2.length;i++){
+            if(Row2[i]==0)
+                System.out.print((i+1) + ",");
+        }
+        System.out.println();
+        System.out.print("Seat available in row 3 :");
+        for(int i=0;i< Row3.length;i++){
+            if(Row3[i]==0)
+                System.out.print((i+1) + ",");
+        }
+        System.out.println();
+
+    }
         
     }
 
