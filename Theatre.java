@@ -1,5 +1,5 @@
 // import java.io.FileReader;
-// import java.io.FileWriter;
+import java.io.FileWriter;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -38,8 +38,8 @@ public class Theatre {
                     case 1 :buyTicket();break;
                     case 2 :printSeatingArea();break;
                     case 3 :cancelTicket();break;
-                    // case 4 :showAvailable();break;
-                    // case 5 :save();break;
+                    case 4 :showAvailable();break;
+                    case 5 :save();break;
                     // case 6 :loadFile();break;
                     // case 7 :showTickets();break;
                     // case 8 :sortTickets(tickets);break;
@@ -236,6 +236,35 @@ public class Theatre {
         System.out.println();
 
     }
+    public static void save(){ // file writing method
+        System.out.println("File created!");
+            saveFile();
+
+    }
+    private static void saveFile(){ //file writing sub method
+        try{
+            FileWriter writer=new FileWriter("Text.txt");
+            writer.write("Available Seats -[0] & Booked Seats -[1]\n");
+            writer.write("Row 1 :");
+            for (int j : Row1) {
+                writer.write(j + ",");
+            }
+            writer.write("\n");
+            writer.write("Row 2 :");
+            for (int j : Row2) {
+                writer.write(j + ",");
+            }
+            writer.write("\n");
+            writer.write("Row 3 :");
+            for (int j : Row3) {
+                writer.write(j + ",");
+            }
+            writer.close();
+        }catch (Exception e){
+            System.out.println("File not Found,");
+        }
+    }
+    
         
     }
 
