@@ -42,7 +42,7 @@ public class Theatre {
                     case 5 :save();break;
                     case 6 :loadFile();break;
                     case 7 :showTickets();break;
-                    // case 8 :sortTickets(tickets);break;
+                    case 8 :sortTickets(tickets);break;
                     case 0 :check=false;break;
                     default : System.out.println("Invalid selection, Please try again");
                 }
@@ -286,6 +286,26 @@ public class Theatre {
         }
         System.out.println("Total ticket price :"+totalPrice);
     }
+    public static void sortTickets(ArrayList<Ticket>  sortArray){ //sort all tickets prices to Ascending order
+        int range=sortArray.size();
+        // One by one move boundary of unsorted sub array
+        for(int i=0;i<range-1;i++){
+            int minIndex=i;
+            // Find the minimum element in unsorted array
+            for(int j=i+1;j<range;j++) {
+                if (sortArray.get(j).getPrice() < sortArray.get(minIndex).getPrice()) //Ascending Order Type
+                    minIndex = j;
+            }
+            // Swap the found minimum element with the first element
+                Ticket temp= sortArray.get(minIndex);
+                sortArray.set(minIndex,sortArray.get(i));
+                sortArray.set(i,temp);
+        }
+        for(Ticket value:sortArray){
+            value.print();
+        }
+    }
+    
     
             
 }
