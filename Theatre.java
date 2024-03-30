@@ -37,7 +37,7 @@ public class Theatre {
                 switch (option) {               //switch case to call all the methods
                     case 1 :buyTicket();break;
                     case 2 :printSeatingArea();break;
-                    // case 3 :cancelTicket();break;
+                    case 3 :cancelTicket();break;
                     // case 4 :showAvailable();break;
                     // case 5 :save();break;
                     // case 6 :loadFile();break;
@@ -181,7 +181,37 @@ public class Theatre {
         }
         System.out.println();
     }
-    
+    public static void cancelTicket(){  //cancel Ticket method
+        int seatNumber;
+        int row = getInputValidate(1, 3, "Row Number :"); //get data from getInputValidate method
+        if (row == 1) {
+            seatNumber = getInputValidate(1, 12, "Seat Number :");
+            cancelSeat(Row1,row,seatNumber); //get data from cancelSeat Method
+
+        } else if (row == 2) {
+            seatNumber = getInputValidate(1, 16, "Seat Number :");
+           cancelSeat(Row2,row,seatNumber);
+
+        } else if (row == 3) {
+            seatNumber = getInputValidate(1, 20, "Seat Number :");
+            cancelSeat(Row3,row,seatNumber);
+        }
+    }
+    private static void cancelSeat(int[]row,int rowNumber,int seatNumber){  // seat cancelling part method
+        int arrayIndex=seatNumber-1;
+        if(row[arrayIndex]==1){
+            row[arrayIndex]=0;
+            for(Ticket ticket:tickets){
+                if(ticket.getRow()==rowNumber && ticket.getSeat()==seatNumber){
+                    tickets.remove(ticket);
+                    System.out.println("Your Seat is Cancelled!");
+                    break;
+                }
+            }
+        }else
+            System.out.println("This seat is not Booked.");
+    }
+        
     }
 
 
