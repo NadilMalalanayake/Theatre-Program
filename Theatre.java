@@ -1,4 +1,4 @@
-// import java.io.FileReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -40,7 +40,7 @@ public class Theatre {
                     case 3 :cancelTicket();break;
                     case 4 :showAvailable();break;
                     case 5 :save();break;
-                    // case 6 :loadFile();break;
+                    case 6 :loadFile();break;
                     // case 7 :showTickets();break;
                     // case 8 :sortTickets(tickets);break;
                     case 0 :check=false;break;
@@ -264,9 +264,23 @@ public class Theatre {
             System.out.println("File not Found,");
         }
     }
-    
-        
+    public static void loadFile(){ //Reading all data from save method
+        System.out.println();
+        try {
+            FileReader file = new FileReader("Text.txt");//file class object
+            Scanner input = new Scanner(file);
+            while (input.hasNext()) {  //check how many read lines
+                String print= input.nextLine();   //scan all the lines and values assign to print Variable
+                System.out.println(print);
+            }
+            input.close();
+        } catch (Exception e) {
+            System.out.println("Error" + e);
+        }
     }
+    
+            
+}
 
 
 
