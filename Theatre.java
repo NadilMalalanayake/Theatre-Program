@@ -41,7 +41,7 @@ public class Theatre {
                     case 4 :showAvailable();break;
                     case 5 :save();break;
                     case 6 :loadFile();break;
-                    // case 7 :showTickets();break;
+                    case 7 :showTickets();break;
                     // case 8 :sortTickets(tickets);break;
                     case 0 :check=false;break;
                     default : System.out.println("Invalid selection, Please try again");
@@ -277,6 +277,14 @@ public class Theatre {
         } catch (Exception e) {
             System.out.println("Error" + e);
         }
+    }
+    public static void showTickets(){ //show all the user details with the total price of tickets
+        double totalPrice=0;
+        for(Ticket ticket:tickets){
+            totalPrice+=ticket.getPrice();
+            ticket.print();
+        }
+        System.out.println("Total ticket price :"+totalPrice);
     }
     
             
